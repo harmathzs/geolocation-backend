@@ -9,6 +9,7 @@ var addresses = []
 
 // endpoints
 app.get('/hello', (req, res)=>{
+    console.log('GET /hello called')
     return res.status(200).json({message: "Hello gypsies!"})
 })
 
