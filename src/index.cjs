@@ -5,9 +5,20 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+var addresses = []
+
 // endpoints
 app.get('/hello', (req, res)=>{
+    console.log('GET /hello called')
     return res.status(200).json({message: "Hello gypsies!"})
+})
+
+app.post('/geolocation', (req, res)=>{
+  const {latitude, longitude} = req.body
+  console.log({latitude, longitude})
+  addresses.push({latitude,longitude})
+
+  return res.status(201).json('ok')
 })
 
 const port = 3333
